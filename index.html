@@ -1,124 +1,110 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadeado Lógico</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f3f3f3;
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            text-align: center;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .lock {
-            font-size: 50px;
-            color: red;
-        }
-        .unlocked {
-            color: green;
-        }
-        input {
-            padding: 10px;
-            margin-top: 10px;
-            text-align: center;
-            font-size: 16px;
-        }
-        button {
-            padding: 10px;
-            margin-top: 10px;
-            background-color: blue;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        button:hover {
-            background-color: darkblue;
-        }
-        #message {
-            display: none;
-            margin-top: 20px;
-            font-size: 16px;
-            color: black;
-        }
-        #link {
-            display: none;
-            margin-top: 20px;
-        }
-        #link a {
-            color: blue;
-            text-decoration: none;
-            font-size: 16px;
-        }
-        #link a:hover {
-            text-decoration: underline;
-        }
-    </style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Enigma 1 – 10 Primeiros Números Primos</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f4f8;
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 24px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+    .lock {
+      font-size: 60px;
+      color: #c00;
+      margin-bottom: 12px;
+      transition: color 0.3s;
+    }
+    .unlocked {
+      color: #0a0;
+    }
+    .question {
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+    input {
+      width: calc(100% - 20px);
+      padding: 8px;
+      font-size: 16px;
+      border: 1px solid #bbb;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+    button {
+      padding: 10px 16px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #message {
+      display: none;
+      margin-top: 20px;
+      font-size: 16px;
+      color: #333;
+    }
+    #message a {
+      display: block;
+      margin-top: 8px;
+      color: #007bff;
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div id="lockIcon" class="lock">🔒</div>
-        <h2>Enigma: O Enigma das Três Lâmpadas</h2>
-        <p>Você está em um quarto com três interruptores. Cada interruptor controla uma lâmpada em outro quarto. Você pode ligar ou desligar os interruptores e depois ir até o outro quarto verificar as lâmpadas. Qual é a maneira de determinar qual interruptor controla qual lâmpada, indo ao outro quarto apenas uma vez?</p>
-        <ul>
-            <li>A) Ligar todos os interruptores e ir até o quarto.</li>
-            <li>B) Ligar um interruptor, esperar um tempo e desligá-lo, depois verificar qual lâmpada está quente.</li>
-            <li>C) Ligar o primeiro interruptor, esperar 5 minutos e desligá-lo, depois ligar o segundo interruptor.</li>
-            <li>D) Ligar o segundo interruptor e ir direto ao quarto.</li>
-            <li>E) Ligar o terceiro interruptor e ir direto ao quarto.</li>
-            <li>F) Ligar o primeiro interruptor, esperar 10 minutos, e depois verificar qual lâmpada está acesa.</li>
-            <li>G) Desligar todos os interruptores e depois testar as lâmpadas manualmente.</li>
-            <li>H) Ligar o segundo e o terceiro interruptor e ir até o quarto.</li>
-            <li>I) Girar todos os interruptores ao mesmo tempo e verificar as lâmpadas.</li>
-            <li>J) Usar um termômetro para medir a temperatura de cada lâmpada.</li>
-            <li>K) Ligar os interruptores por ordem e verificar qual lâmpada acende.</li>
-            <li>L) Testar a lâmpada que está apagada.</li>
-            <li>M) Ligar um interruptor por vez e verificar no quarto.</li>
-            <li>N) Colocar as lâmpadas em sequência de intensidade.</li>
-            <li>O) Testar as lâmpadas em sequência e verificar o calor.</li>
-        </ul>
-        <h3>Digite a letra da alternativa correta para desbloquear:</h3>
-        <input type="text" id="codeInput" placeholder="Digite a letra da alternativa">
-        <br>
-        <button onclick="checkCode()">Desbloquear</button>
-        <p id="message">Parabéns! Você decifrou o enigma!</p>
-        <div id="link">
-            <p>Confira mais enigmas no <a href="https://eng-pablo-tec.github.io/enigma2/" target="_blank">link aqui!</a></p>
-        </div>
+  <div class="container">
+    <div id="lockIcon" class="lock">🔒</div>
+    <div class="question">
+      Quais são os <strong>10 primeiros</strong> números primos?<br>
+      (Digite separados por vírgula)
     </div>
+    <input type="text" id="answer" placeholder="Ex: 2,3,5,..."/>
+    <br/>
+    <button onclick="checkAnswer()">Desbloquear</button>
+    <p id="message">
+      🎉 Parabéns! Você acertou.<br/>
+      <a href="https://eng-pablo-tec.github.io/enigma2/" target="_blank">Próximo Enigma</a>
+    </p>
+  </div>
 
-    <script>
-        function checkCode() {
-            const correctCode = "C"; // Letra da alternativa correta
-            const userCode = document.getElementById("codeInput").value.toUpperCase();
-            const lockIcon = document.getElementById("lockIcon");
-            const message = document.getElementById("message");
-            const link = document.getElementById("link");
-            
-            if (userCode === correctCode) {
-                lockIcon.textContent = "🔓";
-                lockIcon.classList.add("unlocked");
-                setTimeout(() => {
-                    message.style.display = "block";
-                    link.style.display = "block";
-                }, 500);
-            } else {
-                lockIcon.textContent = "🔒";
-                lockIcon.classList.remove("unlocked");
-                message.style.display = "none";
-                link.style.display = "none";
-            }
-        }
-    </script>
+  <script>
+    function checkAnswer() {
+      const raw = document.getElementById('answer').value;
+      const cleaned = raw.replace(/\s+/g, '');
+      const correct = '2,3,5,7,11,13,17,19,23,29';
+      const icon = document.getElementById('lockIcon');
+      const msg = document.getElementById('message');
+      if (cleaned === correct) {
+        icon.textContent = '🔓';
+        icon.classList.add('unlocked');
+        setTimeout(() => msg.style.display = 'block', 300);
+      } else {
+        icon.textContent = '🔒';
+        icon.classList.remove('unlocked');
+        msg.style.display = 'none';
+      }
+    }
+  </script>
 </body>
 </html>
